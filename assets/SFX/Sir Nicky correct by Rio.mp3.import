@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://daehvytcffmia"
+path="res://.godot/imported/Sir Nicky correct by Rio.mp3-abaa06d4953e0f33e5ab216e9c287822.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX/Sir Nicky correct by Rio.mp3"
+dest_files=["res://.godot/imported/Sir Nicky correct by Rio.mp3-abaa06d4953e0f33e5ab216e9c287822.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

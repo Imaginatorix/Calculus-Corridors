@@ -1,0 +1,265 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmh6l82y0a8nc"]
+
+[ext_resource type="Script" path="res://scripts/question_prompt.gd" id="1_at8gj"]
+[ext_resource type="Shader" path="res://assets/question_prompt.gdshader" id="1_m1cmc"]
+[ext_resource type="AudioStream" uid="uid://dibxsd43b0820" path="res://assets/MUSIC/battle music.mp3" id="4_ctbr4"]
+[ext_resource type="Texture2D" uid="uid://c2wluwqvpjha4" path="res://sprites/characters/slime_face.png" id="6_utjgb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2llmy"]
+shader = ExtResource("1_m1cmc")
+shader_parameter/lod = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7i5ft"]
+load_path = "res://.godot/imported/Q1.png-60d548847bfefa44905c1d8fb1b0a93f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4hd3a"]
+load_path = "res://.godot/imported/Q1A.png-988bcd3feb1b8b09b6276a28e50c764d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7q8sw"]
+load_path = "res://.godot/imported/Q1B.png-949570149f27806628b64b3b08944858.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3rsak"]
+load_path = "res://.godot/imported/Q1C.png-548e93e9a5ef2642b3b93ba50a800b02.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kxoh5"]
+load_path = "res://.godot/imported/Q1D.png-90ebf909b5d494dc9f3fc2ea86393b44.ctex"
+
+[sub_resource type="Animation" id="Animation_b2g0n"]
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_s5466"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 0.89, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wmnmy"]
+_data = {
+"RESET": SubResource("Animation_b2g0n"),
+"blur": SubResource("Animation_s5466")
+}
+
+[node name="QuestionPrompt" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_at8gj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_2llmy")
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 0
+offset_left = 124.0
+offset_top = 50.0
+offset_right = 1000.0
+offset_bottom = 586.0
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="Face" type="Sprite2D" parent="Background"]
+position = Vector2(70, 64)
+scale = Vector2(1.96154, 1.92157)
+texture = ExtResource("6_utjgb")
+
+[node name="Teacher" type="Label" parent="Background"]
+layout_mode = 2
+offset_left = 145.0
+offset_top = 46.0
+offset_right = 944.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 32
+text = "Teacher:"
+
+[node name="Time" type="Label" parent="Background"]
+layout_mode = 2
+offset_left = 743.0
+offset_top = 45.0
+offset_right = 1542.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 32
+text = "00:00
+"
+
+[node name="Question" type="TextureRect" parent="Background"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 125.0
+offset_right = 834.0
+offset_bottom = 225.0
+texture = SubResource("CompressedTexture2D_7i5ft")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="A" type="Button" parent="Background"]
+clip_contents = true
+layout_mode = 2
+offset_left = 35.0
+offset_top = 268.0
+offset_right = 836.0
+offset_bottom = 320.0
+size_flags_horizontal = 3
+icon = SubResource("CompressedTexture2D_4hd3a")
+icon_alignment = 1
+expand_icon = true
+
+[node name="B" type="Button" parent="Background"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 334.0
+offset_right = 834.0
+offset_bottom = 386.0
+size_flags_horizontal = 3
+icon = SubResource("CompressedTexture2D_7q8sw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="C" type="Button" parent="Background"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 400.0
+offset_right = 834.0
+offset_bottom = 452.0
+size_flags_horizontal = 3
+icon = SubResource("CompressedTexture2D_3rsak")
+icon_alignment = 1
+expand_icon = true
+
+[node name="D" type="Button" parent="Background"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 463.0
+offset_right = 834.0
+offset_bottom = 516.0
+size_flags_horizontal = 3
+icon = SubResource("CompressedTexture2D_kxoh5")
+icon_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wmnmy")
+}
+
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ctbr4")
+volume_db = -10.0
+
+[connection signal="pressed" from="Background/A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="Background/B" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="Background/C" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="Background/D" to="." method="_on_d_pressed"]

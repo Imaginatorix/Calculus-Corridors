@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b21wid4a1c4kt"
+path="res://.godot/imported/Dominic Interaction.mp3-f257987b6e1eb6487dcd93682fb241c0.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX/Dominic Interaction.mp3"
+dest_files=["res://.godot/imported/Dominic Interaction.mp3-f257987b6e1eb6487dcd93682fb241c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

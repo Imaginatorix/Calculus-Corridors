@@ -1,0 +1,158 @@
+[gd_scene load_steps=21 format=3 uid="uid://mrhnntjsgadx"]
+
+[ext_resource type="Script" path="res://scripts/joan.gd" id="1_hoeao"]
+[ext_resource type="Texture2D" uid="uid://dm7qqyh72eo8g" path="res://sprites/ANIMATIONS/IDLE/Ma_am Joan Idle Animation.png" id="2_ddxtl"]
+[ext_resource type="Texture2D" uid="uid://c4p1dwae3687a" path="res://sprites/ANIMATIONS/WALK/Ma_am Joan Walk Animation.png" id="3_t57br"]
+[ext_resource type="Texture2D" uid="uid://cpbqmqshiwxdf" path="res://sprites/ANIMATIONS/STUN/sst animatio.png" id="4_bfky2"]
+[ext_resource type="Texture2D" uid="uid://dewddoh7ts7b4" path="res://sprites/ANIMATIONS/NOTIFIED/notified animation.png" id="5_nln6v"]
+[ext_resource type="AudioStream" uid="uid://bk7bptuxldjar" path="res://assets/SFX/Ma_am Joan Interaction.mp3" id="6_xj6xx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl17h"]
+atlas = ExtResource("2_ddxtl")
+region = Rect2(0, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxof3"]
+atlas = ExtResource("2_ddxtl")
+region = Rect2(13, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n82o0"]
+atlas = ExtResource("3_t57br")
+region = Rect2(0, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgyh3"]
+atlas = ExtResource("3_t57br")
+region = Rect2(13, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfo8r"]
+atlas = ExtResource("3_t57br")
+region = Rect2(26, 0, 13, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4kj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl17h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxof3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n82o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgyh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfo8r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sx4x"]
+atlas = ExtResource("4_bfky2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30f7r"]
+atlas = ExtResource("4_bfky2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ak55"]
+atlas = ExtResource("5_nln6v")
+region = Rect2(10, 10, 2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rv23"]
+atlas = ExtResource("5_nln6v")
+region = Rect2(0, 0, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rubj1"]
+atlas = ExtResource("5_nln6v")
+region = Rect2(7, 0, 7, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_brj85"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sx4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30f7r")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ak55")
+}],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rv23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rubj1")
+}],
+"loop": true,
+"name": &"notified",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vescp"]
+radius = 56.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyil0"]
+radius = 6.08276
+
+[node name="joan" type="CharacterBody2D"]
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_hoeao")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -49.2308
+offset_top = -30.0
+offset_right = 55.7692
+offset_bottom = -15.0
+theme_override_font_sizes/font_size = 8
+text = "Press '1' to freeze teachers"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_q4kj3")
+animation = &"idle"
+
+[node name="Halo" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15.3846)
+scale = Vector2(0.71978, 0.71978)
+sprite_frames = SubResource("SpriteFrames_brj85")
+animation = &"none"
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_vescp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_oyil0")
+
+[node name="Interaction" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_xj6xx")
+
+[node name="Usage" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dibxsd43b0820"
+path="res://.godot/imported/battle music.mp3-53f552ddd9d26f17cd3bb6b95c3c9e2f.mp3str"
+
+[deps]
+
+source_file="res://assets/MUSIC/battle music.mp3"
+dest_files=["res://.godot/imported/battle music.mp3-53f552ddd9d26f17cd3bb6b95c3c9e2f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

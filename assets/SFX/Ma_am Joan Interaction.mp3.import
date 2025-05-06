@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk7bptuxldjar"
+path="res://.godot/imported/Ma_am Joan Interaction.mp3-69382b631f6459f4119a099889a7fb67.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX/Ma_am Joan Interaction.mp3"
+dest_files=["res://.godot/imported/Ma_am Joan Interaction.mp3-69382b631f6459f4119a099889a7fb67.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,110 @@
+[gd_scene load_steps=21 format=3 uid="uid://d3sn3nhukceox"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_aov15"]
+[ext_resource type="Texture2D" uid="uid://du5puspr48bp0" path="res://sprites/tilesets/walls/walls.png" id="2_8vvb1"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_v5aw4"]
+[ext_resource type="Texture2D" uid="uid://cx73hl0g8hb2b" path="res://sprites/tilesets/floors/wooden.png" id="3_qktya"]
+[ext_resource type="PackedScene" uid="uid://8ji6jmq7iti8" path="res://scenes/pause_menu.tscn" id="4_gn474"]
+[ext_resource type="PackedScene" uid="uid://cwgw3n2no66y3" path="res://scenes/game_over_menu.tscn" id="5_3nlnt"]
+[ext_resource type="Texture2D" uid="uid://cvdrqesbx80yp" path="res://sprites/WALL-FLOOR/wall 1.png" id="5_4sb1w"]
+[ext_resource type="Texture2D" uid="uid://ce64b7ohwjvu1" path="res://sprites/WALL-FLOOR/wall fr.png" id="5_lqdsd"]
+[ext_resource type="Texture2D" uid="uid://bsb8gpa01ragw" path="res://sprites/WALL-FLOOR/floor.png" id="6_jmvta"]
+[ext_resource type="PackedScene" uid="uid://dmh6l82y0a8nc" path="res://scenes/question_prompt.tscn" id="7_q13qs"]
+[ext_resource type="PackedScene" uid="uid://dcv3jur0j7hn0" path="res://scenes/winner.tscn" id="8_g8pyy"]
+[ext_resource type="Texture2D" uid="uid://cmjd4u5jtr2rq" path="res://sprites/WALL-FLOOR/wall 4.png" id="8_ggcjk"]
+[ext_resource type="AudioStream" uid="uid://cwgfi50lambkm" path="res://assets/MUSIC/default.mp3" id="9_xoipb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8guyp"]
+texture = ExtResource("2_8vvb1")
+0:3/size_in_atlas = Vector2i(1, 2)
+0:3/0 = 0
+0:3/0/y_sort_origin = 6
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 7.75, 15.75, -8, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v71v4"]
+texture = ExtResource("3_qktya")
+0:0/0 = 0
+0:0/0/z_index = -1
+0:0/0/y_sort_origin = -9
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lx6fh"]
+texture = ExtResource("5_lqdsd")
+0:3/size_in_atlas = Vector2i(1, 2)
+0:3/0 = 0
+0:3/0/y_sort_origin = 5
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 7.42462, 16.2635, -8.83883, 15.5563)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xaly"]
+texture = ExtResource("6_jmvta")
+margins = Vector2i(9, 9)
+texture_region_size = Vector2i(16, 15)
+0:0/0 = 0
+0:0/0/z_index = -1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1osw"]
+texture = ExtResource("8_ggcjk")
+texture_region_size = Vector2i(16, 15)
+1:0/0 = 0
+1:0/0/z_index = -1
+0:0/0 = 0
+0:0/0/z_index = -1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1d14b"]
+texture = ExtResource("5_4sb1w")
+texture_region_size = Vector2i(16, 15)
+0:0/0 = 0
+0:0/0/z_index = -1
+1:0/0 = 0
+1:0/0/z_index = -1
+
+[sub_resource type="TileSet" id="TileSet_3ubi6"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_8guyp")
+sources/1 = SubResource("TileSetAtlasSource_v71v4")
+sources/6 = SubResource("TileSetAtlasSource_lx6fh")
+sources/7 = SubResource("TileSetAtlasSource_0xaly")
+sources/8 = SubResource("TileSetAtlasSource_v1osw")
+sources/9 = SubResource("TileSetAtlasSource_1d14b")
+
+[node name="world" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_aov15")
+
+[node name="GameManager" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("2_v5aw4")
+
+[node name="rooms" type="RigidBody2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+position = Vector2(1, 0)
+tile_set = SubResource("TileSet_3ubi6")
+
+[node name="entities" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="PauseMenuCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenuCanvasLayer" instance=ExtResource("4_gn474")]
+mouse_filter = 1
+
+[node name="GameOverCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverMenu" parent="GameOverCanvasLayer" instance=ExtResource("5_3nlnt")]
+mouse_filter = 1
+
+[node name="QuestionPromptCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="QuestionPrompt" parent="QuestionPromptCanvasLayer" instance=ExtResource("7_q13qs")]
+
+[node name="WinnerCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WinnerMenu" parent="WinnerCanvasLayer" instance=ExtResource("8_g8pyy")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_xoipb")
+autoplay = true
